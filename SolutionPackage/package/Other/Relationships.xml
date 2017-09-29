@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships>
+  <EntityRelationship Name="lk_dkdt_asyncrequestresponsesample_createdby" />
+  <EntityRelationship Name="lk_dkdt_asyncrequestresponsesample_modifiedby" />
+  <EntityRelationship Name="organization_dkdt_asyncrequestresponsesample" />
+</EntityRelationships>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10005</returnedtypecode>
+  <savedqueryid>{d4676542-c8b0-e611-80f0-c4346bac2908}</savedqueryid>
+  <querytype>8192</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical" output-format="xml-platform">
+      <entity name="dkdt_asyncrequestresponsesample">
+        <attribute name="dkdt_asyncrequestresponsesampleid" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="AsyncRequestResponseSamples" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

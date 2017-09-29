@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{6810f30c-9fb1-e611-80f0-fc15b4286d18}</WebResourceId>
+  <Name>dkdt_/CheckForUpdateFromAzureCode.html.js</Name>
+  <DisplayName>dkdt_/CheckForUpdateFromAzureCode.html.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/dkdt_CheckForUpdateFromAzureCodehtmljs6810F30C-9FB1-E611-80F0-FC15B4286D18</FileName>
+</WebResource>

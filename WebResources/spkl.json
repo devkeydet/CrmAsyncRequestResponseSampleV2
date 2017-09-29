@@ -1,0 +1,41 @@
+{
+  "webresources": [
+    {
+      /*
+      Option - profile - Provide a comma delimitered list of profile names that can be referenced when calling spkl
+      */
+      "profile": "default,debug",
+
+      /*
+      Optional - root - Provide the relatative path of the webresources.
+      */
+      //"root": "/",
+
+      /*
+      Optional - solution - Add webresources to a solution when deploying
+      */
+      "solution": "AsyncRequestResponseSample",
+
+      /*
+      Required - files - List the webresources to deploy relatative to the root of this file (or the the root parameter above)
+      */
+      "files": [
+        {
+          "uniquename": "dkdt_/scripts/o.js",
+          "file": "scripts\\o.js",
+          "description": ""
+        },
+        {
+          "uniquename": "dkdt_/CheckForUpdateFromAzureCode.html",
+          "file": "CheckForUpdateFromAzureCode.html",
+          "description": ""
+        },
+        {
+          "uniquename": "dkdt_/CheckForUpdateFromAzureCode.html.js",
+          "file": "CheckForUpdateFromAzureCode.html.js",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

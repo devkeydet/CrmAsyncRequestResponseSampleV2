@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "profile": "default,debug",
+      "assemblypath": "bin\\Debug"
+    },
+    {
+      "profile": "release",
+      "assemblypath": "bin\\Release"
+    }
+  ]
+}

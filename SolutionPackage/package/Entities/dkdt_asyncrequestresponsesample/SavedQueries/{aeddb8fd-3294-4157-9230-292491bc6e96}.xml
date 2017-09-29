@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <returnedtypecode>10005</returnedtypecode>
+  <savedqueryid>{aeddb8fd-3294-4157-9230-292491bc6e96}</savedqueryid>
+  <layoutxml>
+    <grid name="" object="10005" jump="dkdt_name" select="1" icon="1" preview="1">
+      <row name="dkdt_asyncrequestresponsesample" id="dkdt_asyncrequestresponsesampleid">
+        <cell name="dkdt_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="dkdt_asyncrequestresponsesample">
+        <attribute name="dkdt_asyncrequestresponsesampleid" />
+        <attribute name="dkdt_name" />
+        <attribute name="createdon" />
+        <order attribute="dkdt_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="AsyncRequestResponseSample Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

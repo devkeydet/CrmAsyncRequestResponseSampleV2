@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+       <!-- Match specific named files to an alternate folder -->
+       <FileToFile map="CrmAsyncRequestResponseSamplePlugins.dll" to="..\..\Plugins\bin\**\CrmAsyncRequestResponseSample.Plugins.dll" />
+       <!-- Match any file in and under WebResources to an alternate set of sub-folders -->
+       <FileToPath map="WebResources\*.*" to="..\..\WebResources\**" />-->
+       <FileToPath map="WebResources\**\*.*" to="..\..\WebResources\**" />-->
+</Mapping>

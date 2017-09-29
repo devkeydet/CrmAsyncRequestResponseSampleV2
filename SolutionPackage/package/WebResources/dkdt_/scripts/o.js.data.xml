@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{80eb8409-c794-e711-8128-6c3be5b3b698}</WebResourceId>
+  <Name>dkdt_/scripts/o.js</Name>
+  <DisplayName>dkdt_/scripts/o.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/dkdt_scriptsojs80EB8409-C794-E711-8128-6C3BE5B3B698</FileName>
+</WebResource>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="CrmAsyncRequestResponseSample.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f45a02c0e4198870" CustomizationLevel="1">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/CrmAsyncRequestResponseSamplePlugins-09855680-6F4D-4A79-A66B-2A4B1344D064/CrmAsyncRequestResponseSamplePlugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="CrmAsyncRequestResponseSample.Plugins.dkdt_asyncrequestresponsesample_create, CrmAsyncRequestResponseSample.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f45a02c0e4198870" Name="CrmAsyncRequestResponseSample.Plugins.dkdt_asyncrequestresponsesample_create">
+      <FriendlyName>CrmAsyncRequestResponseSample.Plugins.dkdt_asyncrequestresponsesample_create</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

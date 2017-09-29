@@ -1,0 +1,47 @@
+
+<entities xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <entity name="dkdt_asyncrequestresponsesample" displayname="AsyncRequestResponseSample">
+    <records>
+      <record id="c691e700-fd97-e711-8109-5065f38a9b91">
+        <field name="dkdt_asyncrequestresponsesampleid" value="c691e700-fd97-e711-8109-5065f38a9b91" />
+        <field name="createdby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="createdon" value="9/12/2017 8:57:36 PM" />
+        <field name="modifiedby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="modifiedon" value="9/12/2017 8:57:38 PM" />
+        <field name="dkdt_name" value="sample 1" />
+        <field name="organizationid" value="4c156124-3cbb-4a7f-b333-7d8b715d07f2" lookupentity="organization" lookupentityname="dkdtdevops" />
+        <field name="dkdt_responsefromazurecode" value="WHATEVER DATA YOU WANT TO SEND BACK" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="dkdt_updatefromazurecodecomplete" value="True" />
+      </record>
+      <record id="e291e700-fd97-e711-8109-5065f38a9b91">
+        <field name="dkdt_asyncrequestresponsesampleid" value="e291e700-fd97-e711-8109-5065f38a9b91" />
+        <field name="createdby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="createdon" value="9/12/2017 8:57:46 PM" />
+        <field name="modifiedby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="modifiedon" value="9/12/2017 8:57:50 PM" />
+        <field name="dkdt_name" value="sample 2" />
+        <field name="organizationid" value="4c156124-3cbb-4a7f-b333-7d8b715d07f2" lookupentity="organization" lookupentityname="dkdtdevops" />
+        <field name="dkdt_responsefromazurecode" value="WHATEVER DATA YOU WANT TO SEND BACK" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="dkdt_updatefromazurecodecomplete" value="True" />
+      </record>
+      <record id="5f7f230e-fd97-e711-8109-5065f38a9b91">
+        <field name="dkdt_asyncrequestresponsesampleid" value="5f7f230e-fd97-e711-8109-5065f38a9b91" />
+        <field name="createdby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="createdon" value="9/12/2017 8:58:02 PM" />
+        <field name="modifiedby" value="16de84c9-d2a4-4383-8657-c89da9eb2a8b" lookupentity="systemuser" lookupentityname="Marc Schweigert" />
+        <field name="modifiedon" value="9/12/2017 8:58:07 PM" />
+        <field name="dkdt_name" value="sample 3" />
+        <field name="organizationid" value="4c156124-3cbb-4a7f-b333-7d8b715d07f2" lookupentity="organization" lookupentityname="dkdtdevops" />
+        <field name="dkdt_responsefromazurecode" value="WHATEVER DATA YOU WANT TO SEND BACK" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+        <field name="dkdt_updatefromazurecodecomplete" value="True" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+</entities>
