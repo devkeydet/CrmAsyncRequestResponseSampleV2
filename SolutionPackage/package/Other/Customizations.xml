@@ -12,6 +12,7 @@
   <WebResources />
   <SolutionPluginAssemblies />
   <SdkMessageProcessingSteps />
+  <AppModuleSiteMaps />
   <AppModules />
   <Languages>
     <Language>1033</Language>
