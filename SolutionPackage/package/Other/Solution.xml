@@ -83,9 +83,19 @@
       <RootComponent type="61" schemaName="dkdt_/CheckForUpdateFromAzureCode.html" behavior="0" />
       <RootComponent type="61" schemaName="dkdt_/CheckForUpdateFromAzureCode.html.js" behavior="0" />
       <RootComponent type="61" schemaName="dkdt_/scripts/o.js" behavior="0" />
+      <RootComponent type="80" schemaName="dkdt_AsyncRequestResponseSample" behavior="0" />
       <RootComponent type="91" schemaName="CrmAsyncRequestResponseSample.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f45a02c0e4198870" behavior="0" />
       <RootComponent type="92" id="{0d392320-e6b5-e611-80f3-c4346bac2908}" behavior="0" />
     </RootComponents>
-    <MissingDependencies />
+    <MissingDependencies>
+      <MissingDependency>
+        <Required key="0" type="62" schemaName="dkdt_AsyncRequestResponseSample" solution="Active" />
+        <Dependent key="1" type="80" schemaName="dkdt_AsyncRequestResponseSample" displayName="AsyncRequestResponseSample" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.0)" />
+        <Dependent key="1" type="80" schemaName="dkdt_AsyncRequestResponseSample" displayName="AsyncRequestResponseSample" />
+      </MissingDependency>
+    </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>
