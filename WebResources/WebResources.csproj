@@ -69,12 +69,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="spkl.json" />
     <Content Include="spkl\unpack.bat" />
     <Content Include="spkl\pack+import.bat" />
     <Content Include="spkl\instrument-plugin-code.bat" />
     <Content Include="spkl\earlybound.bat" />
+    <Content Include="spkl\deploy-workflows.bat" />
     <Content Include="spkl\deploy-webresources.bat" />
-    <Content Include="spkl.json" />
+    <Content Include="spkl\deploy-plugins.bat" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
