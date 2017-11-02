@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="AsyncRequestResponseSample" OriginalName="AsyncRequestResponseSample">dkdt_asyncrequestresponsesample</Name>
+  <ObjectTypeCode>10005</ObjectTypeCode>
+  <EntityInfo>
+    <entity Name="dkdt_asyncrequestresponsesample">
+      <attributes>
+        <attribute PhysicalName="dkdt_fieldfrompatch">
+          <Type>nvarchar</Type>
+          <Name>dkdt_fieldfrompatch</Name>
+          <LogicalName>dkdt_fieldfrompatch</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.1.1</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Field From Patch" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+      </attributes>
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <RibbonDiffXml />
+  <CustomControlDefaultConfigs>
+    <CustomControlDefaultConfig>
+      <PrimaryEntityTypeCode>10005</PrimaryEntityTypeCode>
+      <CustomControlDefaultConfigId>{6ac0a53a-c8b0-e611-80f0-c4346bac2908}</CustomControlDefaultConfigId>
+      <ControlDescriptionXML>
+        <controlDescriptions />
+      </ControlDescriptionXML>
+      <IntroducedVersion>1.0</IntroducedVersion>
+    </CustomControlDefaultConfig>
+  </CustomControlDefaultConfigs>
+</Entity>
