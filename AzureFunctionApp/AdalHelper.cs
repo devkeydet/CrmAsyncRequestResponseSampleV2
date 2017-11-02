@@ -1,11 +1,10 @@
 ﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System;
 using System.Globalization;
 using System.Threading.Tasks;
 
 namespace AzureFunctionApp
 {
-    internal static class AdalHelper
+    public static class AdalHelper
     {
         private static readonly string _aadInstance = Settings.Get("ida:AADInstance");
         private static readonly string _tenant = Settings.Get("ida:Tenant");
