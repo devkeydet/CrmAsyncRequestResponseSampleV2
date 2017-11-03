@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CrmAsyncRequestResponseSample.Plugins;
+﻿using CrmAsyncRequestResponseSample.Plugins;
 using Microsoft.Crm.Sdk.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
-using System.Net.Fakes;
 using System.Net;
+using System.Net.Fakes;
 
 namespace Plugins.Tests
 {
@@ -20,9 +20,9 @@ namespace Plugins.Tests
                 new Entity("dkdt_asyncrequestresponsesample")))
             {
                 ShimWebClient.AllInstances.UploadDataStringStringByteArray = (WebClient wc, string a, string b, byte[] c) =>
-                {
-                    return new byte[0];
-                };
+            {
+                return new byte[0];
+            };
 
                 //Act
                 var plugin = new dkdt_asyncrequestresponsesample_create("", "Endpoint=sb://some.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rWrelB5AUL9GfOp0tCCCHeClWngq827UQI/3C5N9ts0=;EntityPath=somequeue");
