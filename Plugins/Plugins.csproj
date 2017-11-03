@@ -70,12 +70,17 @@
   <ItemGroup>
     <Compile Include="CrmPluginRegistrationAttribute.cs" />
     <Compile Include="dkdt_asyncrequestresponsesample_create.cs" />
+    <Compile Include="IWebClient.cs" />
+    <Compile Include="MyWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="WebClientFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\coretools\CrmSvcUtil.exe.config" />

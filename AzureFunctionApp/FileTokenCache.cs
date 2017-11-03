@@ -10,9 +10,9 @@ namespace AzureFunctionApp
 
         // Initializes the cache against a local file.
         // If the file is already present, it loads its content in the ADAL cache
-        public FileTokenCache()
+        public FileTokenCache(Settings settings)
         {
-            _cacheFilePath = Settings.Get("HOME") + @"\TokenCache.dat";
+            _cacheFilePath = settings.Get("HOME") + @"\TokenCache.dat";
             AfterAccess = AfterAccessNotification;
             BeforeAccess = BeforeAccessNotification;
             lock (_fileLock)

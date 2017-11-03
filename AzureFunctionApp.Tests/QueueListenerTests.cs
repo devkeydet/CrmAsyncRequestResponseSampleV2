@@ -1,14 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
-using Microsoft.QualityTools.Testing.Fakes;
-using AzureFunctionApp.Fakes;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory.Fakes;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using RestSharp.Fakes;
+using System.Linq;
+using FakeItEasy;
 using RestSharp;
 using System.Net;
-using System.Linq;
 
 namespace AzureFunctionApp.Tests
 {
@@ -21,60 +17,37 @@ namespace AzureFunctionApp.Tests
             //Arrange
             var traceWriter = new TraceWriterStub(TraceLevel.Info);
 
-            // Beint lazy and using Fakes
-            // TODO: Consider refactoring to not require Fakes
-            using (ShimsContext.Create())
-            {
-                //    ShimServiceBusTriggerAttribute.ConstructorStringAccessRights = (ServiceBusTriggerAttribute attr, string a, AccessRights ar) =>
-                //    {
-                //        //Do Nothing
-                //    };
+            var fakeSettings = A.Fake<Settings>();
+            A.CallTo(() => fakeSettings.Get("crmInstanceUrl"))
+            .Returns("https://some.crm.dynamics.com");
+            A.CallTo(() => fakeSettings.Get("crmWebApiVersion"))
+            .Returns("8.2");
 
-                //    ShimServiceBusTriggerAttribute.AllInstances.ConnectionSetString = (ServiceBusTriggerAttribute attr, string c) =>
-                //    {
-                //       //Do Nothing
-                //    };
+            var fakeRestClient = A.Fake<RestClient>();
+            var fakeResponse = GetFakeResponse();
+            A.CallTo(() => fakeRestClient.ExecuteTaskAsync(A<IRestRequest>.Ignored))
+            .Returns(Task.FromResult(fakeResponse));
 
-                //    ShimServiceBusTriggerAttribute.AllInstances.AccessSetAccessRights = (ServiceBusTriggerAttribute attr, AccessRights c) =>
-                //    {
-                //        //Do Nothing
-                //    };
-                ShimSettings.GetString = (string name) =>
-                {
-                    switch (name)
-                    {
-                        case "crmInstanceUrl": return "https://some.crm.dynamics.com";
-                        case "crmWebApiVersion": return "8.2";
-                    }
-                    return "";
-                };
+            var fakeAdalHelper = A.Fake<AdalHelper>();
+            A.CallTo(() => fakeAdalHelper.GetBearerTokenAsync())
+            .Returns("fake_token");
 
-                ShimAuthenticationContext.ConstructorStringTokenCache = (AuthenticationContext a, string authority, TokenCache tc) =>
-                {
-                    //Do Nothing
-                };
+            //Act
+            await QueueListener.TestableRunAsync("somevalue", traceWriter, fakeSettings, fakeRestClient, fakeAdalHelper);
 
-                ShimAdalHelper.GetBearerTokenAsync = () =>
-                {
-                    return Task.FromResult("fake_token");
-                };
-
-                ShimRestClient.AllInstances.ExecuteTaskAsyncIRestRequest = (RestClient r, IRestRequest rr) =>
-                {
-                    var response = new RestResponse
-                    {
-                        StatusCode = HttpStatusCode.NoContent
-                    };
-                    return Task.FromResult(response as IRestResponse);
-                };
-
-                //Act
-                await QueueListener.RunAsync("somevalue", traceWriter);
-
-                //Assert
-                var traceEvent = traceWriter.Traces.Where(t=>t.Message.Contains("Successfully processed")).First();
-                Assert.IsNotNull(traceEvent);
-            }
+            //Assert
+            var traceEvent = traceWriter.Traces.Where(t => t.Message.Contains("Successfully processed")).FirstOrDefault();
+            Assert.IsNotNull(traceEvent);
         }
+
+        private IRestResponse GetFakeResponse()
+        {
+            var response = new RestResponse
+            {
+                StatusCode = HttpStatusCode.NoContent
+            };
+            return response as IRestResponse;
+        }
+
     }
 }

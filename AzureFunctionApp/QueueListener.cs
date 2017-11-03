@@ -11,13 +11,21 @@ namespace AzureFunctionApp
 {
     public static class QueueListener
     {
-        private static readonly string _crmInstanceUrl = Settings.Get("crmInstanceUrl");
-        private static readonly object _crmWebApiVersion = Settings.Get("crmWebApiVersion");
-        private static readonly Uri _baseUri = new Uri($"{_crmInstanceUrl}/api/data/v{_crmWebApiVersion}");
-
         [FunctionName("QueueListener")]
         public static async Task RunAsync([ServiceBusTrigger("crmqueue", AccessRights.Listen, Connection = "sbconn")]string myQueueItem, TraceWriter log)
         {
+            var settings = new Settings();
+            var restClient = new RestClient();
+            var adalHelper = new AdalHelper();
+            await TestableRunAsync(myQueueItem, log, settings, restClient, adalHelper);
+        }
+
+        public static async Task TestableRunAsync(string myQueueItem, TraceWriter log, Settings settings, RestClient restClient, AdalHelper adalHelper)
+        {
+            string crmInstanceUrl = settings.Get("crmInstanceUrl");
+            object crmWebApiVersion = settings.Get("crmWebApiVersion");
+            Uri baseUri = new Uri($"{crmInstanceUrl}/api/data/v{crmWebApiVersion}");
+
             var primaryEntityId = myQueueItem;
             log.Info($"Begin processing: {primaryEntityId}");
 
@@ -25,8 +33,8 @@ namespace AzureFunctionApp
             // or perhaps we need to call a web service, etc.
             Thread.Sleep(2000);
 
-            var restClient = new RestClient(_baseUri);
-            var token = await AdalHelper.GetBearerTokenAsync();
+            restClient.BaseUrl = baseUri;
+            var token = await adalHelper.GetBearerTokenAsync();
             restClient.AddDefaultHeader("Authorization", $"Bearer {token}");
 
             var entity = $"dkdt_asyncrequestresponsesamples({primaryEntityId})";

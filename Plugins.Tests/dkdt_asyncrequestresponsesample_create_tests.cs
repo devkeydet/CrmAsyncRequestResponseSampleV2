@@ -1,9 +1,8 @@
 ﻿using CrmAsyncRequestResponseSample.Plugins;
-using Microsoft.Crm.Sdk.Fakes;
+using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
-using System.Net;
-using System.Net.Fakes;
+using System;
 
 namespace Plugins.Tests
 {
@@ -14,23 +13,30 @@ namespace Plugins.Tests
         public void TestExecuteWithConfiguration()
         {
             // Arrange
-            using (var pipeline = new PluginPipeline(
-                FakeMessageNames.Create,
-                FakeStages.PostOperation,
-                new Entity("dkdt_asyncrequestresponsesample")))
-            {
-                ShimWebClient.AllInstances.UploadDataStringStringByteArray = (WebClient wc, string a, string b, byte[] c) =>
-            {
-                return new byte[0];
-            };
+            var fakeServiceProvider = A.Fake<IServiceProvider>();
+            var fakePluginExecutionContext = A.Fake<IPluginExecutionContext>();
+            var fakeWebClient = A.Fake<IWebClient>();
+            A.CallTo(
+                () => fakeServiceProvider.GetService(typeof(IPluginExecutionContext))
+            ).Returns(fakePluginExecutionContext);
+            A.CallTo(
+                () => fakePluginExecutionContext.PrimaryEntityId
+            ).Returns(Guid.NewGuid());
+            A.CallTo(
+                () => fakeWebClient.UploadData(A<string>.Ignored, A<string>.Ignored, A<byte[]>.Ignored)
+            ).Returns(null);
 
-                //Act
-                var plugin = new dkdt_asyncrequestresponsesample_create("", "Endpoint=sb://some.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rWrelB5AUL9GfOp0tCCCHeClWngq827UQI/3C5N9ts0=;EntityPath=somequeue");
-                pipeline.Execute(plugin);
+            // Act
+            var plugin = new dkdt_asyncrequestresponsesample_create(
+                "",
+                "Endpoint=sb://some.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rWrelB5AUL9GfOp0tCCCHeClWngq827UQI/3C5N9ts0=;EntityPath=somequeue"
+            );
+            plugin.TestableExecute(fakeServiceProvider, fakeWebClient);
 
-                // Assert
-                // Nothing to asssert in this case since we aren't manipulating anything in the context.  If the code executes without exception, it's a succesful test.
-            }
+            //Assert
+            A.CallTo(
+                () => fakeWebClient.UploadData(A<string>.Ignored, A<string>.Ignored, A<byte[]>.Ignored)
+            ).MustHaveHappened();
         }
     }
 }

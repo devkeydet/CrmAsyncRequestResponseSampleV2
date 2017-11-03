@@ -49,6 +49,12 @@ namespace CrmAsyncRequestResponseSample.Plugins
 
         public void Execute(IServiceProvider serviceProvider)
         {
+            var webClient = WebClientFactory.Create();
+            TestableExecute(serviceProvider, webClient);
+        }
+
+        public void TestableExecute(IServiceProvider serviceProvider, IWebClient webClient)
+        {
             if (_hasConfiguration)
             {
                 var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -61,7 +67,7 @@ namespace CrmAsyncRequestResponseSample.Plugins
                     // Therefore, we can increase performance by sending *only* the data our queue processing
                     // code requires.  We gain performance in serialization/deserialization of
                     // queue message *and* speed over the wire since the data payload will be much smaller.
-                    SendMessageToQueue($"{context.PrimaryEntityId}");
+                    SendMessageToQueue($"{context.PrimaryEntityId}", webClient);
                 }
                 catch (Exception e)
                 {
@@ -83,12 +89,10 @@ namespace CrmAsyncRequestResponseSample.Plugins
                 WebUtility.UrlEncode(_baseAddress), WebUtility.UrlEncode(signature), expiry, _sasKeyName);
         }
 
-        private void SendMessageToQueue(string body)
+        private void SendMessageToQueue(string body, IWebClient webClient)
         {
             var fullAddress = _baseAddress + _queueName + "/messages" + "?timeout=60&api-version=2013-08 ";
-            //Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
-            var webClient = new WebClient {Headers = {[HttpRequestHeader.Authorization] = _token}};
-
+            webClient.Headers.Add(HttpRequestHeader.Authorization, _token);
             webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
         }
     }
