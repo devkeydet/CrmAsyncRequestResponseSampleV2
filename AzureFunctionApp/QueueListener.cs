@@ -3,6 +3,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.ServiceBus.Messaging;
 using RestSharp;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,13 +12,14 @@ namespace AzureFunctionApp
 {
     public static class QueueListener
     {
+        [ExcludeFromCodeCoverage]
         [FunctionName("QueueListener")]
-        public static async Task RunAsync([ServiceBusTrigger("crmqueue", AccessRights.Listen, Connection = "sbconn")]string myQueueItem, TraceWriter log)
+        public static void Run([ServiceBusTrigger("crmqueue", AccessRights.Listen, Connection = "sbconn")]string myQueueItem, TraceWriter log)
         {
             var settings = new Settings();
             var restClient = new RestClient();
             var adalHelper = new AdalHelper();
-            await TestableRunAsync(myQueueItem, log, settings, restClient, adalHelper);
+            TestableRunAsync(myQueueItem, log, settings, restClient, adalHelper).Wait();
         }
 
         public static async Task TestableRunAsync(string myQueueItem, TraceWriter log, Settings settings, RestClient restClient, AdalHelper adalHelper)

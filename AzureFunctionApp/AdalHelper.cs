@@ -1,9 +1,11 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Globalization;
 using System.Threading.Tasks;
 
 namespace AzureFunctionApp
 {
+    [ExcludeFromCodeCoverage]
     public class AdalHelper
     {
         public virtual async Task<string> GetBearerTokenAsync()

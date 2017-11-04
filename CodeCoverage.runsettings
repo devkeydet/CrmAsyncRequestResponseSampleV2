@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="Code Coverage"
+                     uri="datacollector://Microsoft/CodeCoverage/2.0"
+                     assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <Configuration>
+          <CodeCoverage>
+            <ModulePaths>
+              <Include>
+                <ModulePath>.*\.dll$</ModulePath>
+              </Include>
+              <Exclude>
+                <ModulePath>.*tests.dll</ModulePath>
+                <ModulePath>.*fakeiteasy.dll</ModulePath>
+              </Exclude>
+            </ModulePaths>
+            <Functions>
+              <Exclude>
+                <Function>CrmAsyncRequestResponseSample.Plugins.Properties.Settings\..*</Function>
+                <!--<Function>CrmAsyncRequestResponseSample.Plugins.WebClientFactory\..*</Function>
+                <Function>CrmPluginRegistrationAttribute\..*</Function>
+                <Function>^CrmAsyncRequestResponseSample\.Plugins\.dkdt\_asyncrequestresponsesample\_create\.Execute\(System\.IServiceProvider\)$</Function>
+                <Function>AzureFunctionApp.Settings\..*</Function>
+                <Function>AzureFunctionApp.FileTokenCache\..*</Function>
+                <Function>AzureFunctionApp.AdalHelper\..*</Function>
+                <Function>^AzureFunctionApp\.QueueListener\.RunAsync\(string,Microsoft\.Azure\.WebJobs\.Host\.TraceWriter\)$</Function>-->
+              </Exclude>
+            </Functions>
+            <!-- Match attributes on any code element: -->
+            <Attributes>
+              <Exclude>
+                <Attribute>System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</Attribute>
+              </Exclude>
+            </Attributes>
+            <UseVerifiableInstrumentation>True</UseVerifiableInstrumentation>
+            <AllowLowIntegrityProcesses>True</AllowLowIntegrityProcesses>
+            <CollectFromChildProcesses>True</CollectFromChildProcesses>
+            <CollectAspDotNet>False</CollectAspDotNet>
+          </CodeCoverage>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

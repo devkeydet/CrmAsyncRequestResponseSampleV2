@@ -1,5 +1,8 @@
-﻿namespace CrmAsyncRequestResponseSample.Plugins
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace CrmAsyncRequestResponseSample.Plugins
 {
+    [ExcludeFromCodeCoverage]
     class WebClientFactory
     {
         public static IWebClient Create()

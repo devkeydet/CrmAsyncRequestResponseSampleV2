@@ -1,8 +1,10 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace AzureFunctionApp
 {
+    [ExcludeFromCodeCoverage]
     internal class FileTokenCache : TokenCache
     {
         private static readonly object _fileLock = new object();

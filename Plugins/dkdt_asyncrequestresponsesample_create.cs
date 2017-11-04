@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Security.Cryptography;
@@ -22,7 +23,7 @@ namespace CrmAsyncRequestResponseSample.Plugins
         private readonly string _sasKeyName;
         private readonly string _sasKeyValue;
         private readonly string _queueName;
-        private bool _hasConfiguration;
+        private readonly bool _hasConfiguration;
 
         // ReSharper disable once UnusedParameter.Local
         public dkdt_asyncrequestresponsesample_create(string unsecureConfig, string secureConfig)
@@ -47,6 +48,7 @@ namespace CrmAsyncRequestResponseSample.Plugins
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public void Execute(IServiceProvider serviceProvider)
         {
             var webClient = WebClientFactory.Create();
@@ -57,10 +59,9 @@ namespace CrmAsyncRequestResponseSample.Plugins
         {
             if (_hasConfiguration)
             {
-                var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
-
                 try
                 {
+                    var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
                     // Instead of using the built in CRM integration with Azure Service Bus (ASB),
                     // we are going to put a message in a queue directly using the ASB REST API.
                     // Our queue processing code doesn't need everything in the IPluginExecutionContext.
@@ -73,6 +74,10 @@ namespace CrmAsyncRequestResponseSample.Plugins
                 {
                     throw new InvalidPluginExecutionException(e.Message);
                 }
+            }
+            else
+            {
+                throw new InvalidPluginExecutionException("No Secure Configuration");
             }
         }
 
