@@ -52,7 +52,10 @@
   <ItemGroup>
     <Content Include="CheckForUpdateFromAzureCode.html" />
     <Content Include="CheckForUpdateFromAzureCode.html.js" />
+    <Content Include="tests\CheckForUpdateFromAzureCode.html.tests.js" />
     <Content Include="scripts\o.js" />
+    <Content Include="testhelpers\dollar.js" />
+    <Content Include="testhelpers\sinon.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,7 +65,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -77,6 +82,8 @@
     <Content Include="spkl\deploy-workflows.bat" />
     <Content Include="spkl\deploy-webresources.bat" />
     <Content Include="spkl\deploy-plugins.bat" />
+    <Content Include="testhelpers\Xrm.Page.js" />
+    <Content Include="tests\chutzpah.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

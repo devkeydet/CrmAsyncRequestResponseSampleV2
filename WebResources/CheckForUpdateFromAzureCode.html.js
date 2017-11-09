@@ -1,21 +1,22 @@
-﻿var timeout = 1000;
+﻿/// <reference path="scripts/o.js"/>
+// TODO: Make more test friendly
+
+var timeout = 1000;
 var Xrm = window.parent.Xrm;
 var counter = 0;
 
-$(function() {
+$(document).ready(onReady);
+
+function onReady(){
     switch (Xrm.Page.ui.getFormType()) {
     case 1: //Create
-        Xrm.Page.getAttribute("modifiedon").addOnChange(modifiedOnChanged);
+        Xrm.Page.getAttribute("modifiedon").addOnChange(checkForUpdate);
         break;
     case 2: //Update
         checkForUpdate();
         break;
     default:
     }
-});
-
-function modifiedOnChanged() {
-    checkForUpdate();
 }
 
 function checkForUpdate() {
@@ -28,23 +29,23 @@ function checkForUpdate() {
     });
 
     o("dkdt_asyncrequestresponsesamples")
-        .filter("dkdt_asyncrequestresponsesampleid eq " + id)
-        .first()
-        .select("dkdt_updatefromazurecodecomplete")
-        .get(function(entity) {
-            var isUpdated = entity.dkdt_updatefromazurecodecomplete;
-            if (isUpdated) {
-                $("#status").empty().append("Azure code updated entity.");
+    .filter("dkdt_asyncrequestresponsesampleid eq " + id)
+    .first()
+    .select("dkdt_updatefromazurecodecomplete")
+    .get(function(entity) {
+        var isUpdated = entity.dkdt_updatefromazurecodecomplete;
+        if (isUpdated) {
+            $("#status").empty().append("Azure code updated entity.");
+            counter = 0;
+        } else {
+            counter++;
+            if (counter > 15) {
+                $("#status").empty()
+                    .append("Something went wrong on the server.  Please contact your administrator.");
                 counter = 0;
             } else {
-                counter++;
-                if (counter > 15) {
-                    $("#status").empty()
-                        .append("Something went wrong on the server.  Please contact your administrator.");
-                    counter = 0;
-                } else {
-                    setTimeout(checkForUpdate, timeout);
-                }
+                setTimeout(checkForUpdate, timeout);
             }
-        });
+        }
+    });
 }

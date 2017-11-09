@@ -14,6 +14,9 @@
               <Exclude>
                 <ModulePath>.*tests.dll</ModulePath>
                 <ModulePath>.*fakeiteasy.dll</ModulePath>
+                <ModulePath>.*chutzpah.dll</ModulePath>
+                <ModulePath>.*testadapter.dll</ModulePath>
+                <ModulePath>.*structuremap.dll</ModulePath>
               </Exclude>
             </ModulePaths>
             <Functions>

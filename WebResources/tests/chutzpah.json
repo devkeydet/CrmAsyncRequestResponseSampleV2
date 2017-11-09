@@ -1,0 +1,15 @@
+﻿{
+  "Framework": "jasmine",
+  "CodeCoverageExecutionMode": "Always",
+  "CodeCoverageExcludes": [
+    "*\\testhelpers\\*",
+    "*\\tests\\*",
+    "*\\scripts\\o.js"
+  ],
+  "Transforms": [
+    {
+      "Name": "jacoco",
+      "Path": "..\\..\\TestResults\\chutzpah-jacoco.xml"
+    }
+  ]
+}
