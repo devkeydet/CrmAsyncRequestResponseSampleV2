@@ -9,6 +9,8 @@
 //          Right now, using stubs mostly for the withArgs() capability, which sinon doesn't appear to have:
 //          https://github.com/jasmine/jasmine/issues/94
 
+// NOTE:    The easies way to debug/run these tests in Visual Studio is to use: http://mmanela.github.io/chutzpah/
+
 describe("CheckForUpdateFromAzureCode", function() {
     var _fakeResult;
     var _fakeAttribute;

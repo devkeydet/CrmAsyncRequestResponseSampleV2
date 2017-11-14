@@ -1,6 +1,6 @@
 ﻿{
   "Framework": "jasmine",
-  "CodeCoverageExecutionMode": "Always",
+  "CodeCoverageExecutionMode": "Never",
   "CodeCoverageExcludes": [
     "*\\testhelpers\\*",
     "*\\tests\\*",
