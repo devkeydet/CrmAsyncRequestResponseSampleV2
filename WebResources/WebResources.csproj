@@ -54,7 +54,7 @@
     <Content Include="CheckForUpdateFromAzureCode.html.js" />
     <Content Include="tests\CheckForUpdateFromAzureCode.html.tests.js" />
     <Content Include="scripts\o.js" />
-    <Content Include="testhelpers\dollar.js" />
+    <Content Include="testhelpers\fakedocready.js" />
     <Content Include="testhelpers\sinon.js" />
   </ItemGroup>
   <ItemGroup>

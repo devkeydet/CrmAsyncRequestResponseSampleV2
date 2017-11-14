@@ -1,6 +1,6 @@
 ﻿{
   "Framework": "jasmine",
-  "CodeCoverageExecutionMode": "Never",
+  "CodeCoverageExecutionMode": "Manual", // set to 'Manual' because of a bug with code coverage & chutzpah debugging...we will have to set it to Automatic with a build task
   "CodeCoverageExcludes": [
     "*\\testhelpers\\*",
     "*\\tests\\*",
