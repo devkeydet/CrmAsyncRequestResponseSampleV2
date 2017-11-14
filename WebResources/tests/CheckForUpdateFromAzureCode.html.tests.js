@@ -1,5 +1,5 @@
 ﻿/// <reference path="../testhelpers/sinon.js"/>
-/// <reference path="../testhelpers/dollar.js"/>
+/// <reference path="../testhelpers/fakedocready.js"/>
 /// <reference path="../testhelpers/Xrm.Page.js"/>
 /// <reference path="../scripts/o.js"/>
 /// <reference path="../CheckForUpdateFromAzureCode.html.js"/>
