@@ -1,0 +1,1 @@
+Breaking one of the the golden rules of source control by checking in dlls.  However, https://github.com/microsoft/easyrepro assemblies are not on nuget.  I've filed an issue: https://github.com/Microsoft/EasyRepro/issues/44.  If/when these assemblies are published to nuget, I will pull from nuget and remove from source control.

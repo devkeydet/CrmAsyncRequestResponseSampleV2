@@ -264,3 +264,4 @@ paket-files/
 __pycache__/
 *.pyc
 /WebResources/tests/chutzpah-jacoco.xml
+/UIAutomationTests/appSettings.config
