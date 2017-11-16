@@ -41,17 +41,17 @@
                     var isUpdated = entity.dkdt_updatefromazurecodecomplete;
                     if (isUpdated) {
                         $("#status").empty().append("Azure code updated entity.");
-                        this.counter = 0;
+                        CheckForUpdateFromAzureCode.counter = 0;
                     }
                     else {
-                        this.counter++;
-                        if (this.counter > 15) {
+                        CheckForUpdateFromAzureCode.counter++;
+                        if (CheckForUpdateFromAzureCode.counter > 15) {
                             $("#status").empty()
                                 .append("Something went wrong on the server.  Please contact your administrator.");
-                            this.counter = 0;
+                            CheckForUpdateFromAzureCode.counter = 0;
                         }
                         else {
-                            setTimeout(this.checkForUpdate, this.timeout);
+                            setTimeout(CheckForUpdateFromAzureCode.checkForUpdate, CheckForUpdateFromAzureCode.timeout);
                         }
                     }
                 });
