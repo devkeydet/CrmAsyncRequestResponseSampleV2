@@ -15,7 +15,7 @@ describe("CheckForUpdateFromAzureCode", function() {
     var _fakeResult;
     var _fakeAttribute;
     var _fireOnChange;
-    var formTypeStub;
+    var _formTypeStub;
 
     beforeEach(function () {
         // Fake for jquery        
@@ -40,7 +40,7 @@ describe("CheckForUpdateFromAzureCode", function() {
         attrStub.withArgs("modifiedon").returns(_fakeAttribute);
         sinon.stub(Xrm.Page.data.entity, "getId").returns("{some-id}");
         sinon.stub(Xrm.Page.context, "getClientUrl").returns("https://some.crm.dynamics.com");
-        formTypeStub = sinon.stub(Xrm.Page.ui, "getFormType")
+        _formTypeStub = sinon.stub(Xrm.Page.ui, "getFormType")
 
         // Fake XMLHttpRequest
         this.xhr = sinon.useFakeXMLHttpRequest();
@@ -66,11 +66,11 @@ describe("CheckForUpdateFromAzureCode", function() {
     }
 
     it("Create_Form_Save_Success", function() {
-        // Arrange (majority of arrange happens in beforeEach      
-        formTypeStub.returns(1);
+        // Arrange (majority of arrange happens in beforeEach)     
+        _formTypeStub.returns(1);
 
         //Act
-        onReady();
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.onReady();
         _fireOnChange();
         
         //Assert
@@ -79,13 +79,13 @@ describe("CheckForUpdateFromAzureCode", function() {
         expect(_fakeAttribute.addOnChange).toHaveBeenCalled();
     });
 
-     it("Create_Form_Save_SetTimeout", function() {
-        // Arrange (majority of arrange happens in beforeEach               
-        formTypeStub.returns(1);
-        counter = 0;
+     it("Create_Form_Save_CallSetTimeout", function() {
+        // Arrange (majority of arrange happens in beforeEach)              
+        _formTypeStub.returns(1);
+         AsyncRequestResponseSample.CheckForUpdateFromAzureCode.updateCounter(0);
 
         //Act
-        onReady();
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.onReady();
         _fireOnChange();
         
         //Assert
@@ -94,12 +94,12 @@ describe("CheckForUpdateFromAzureCode", function() {
     });
 
     it("Create_Form_Save_Timeout", function() {
-        // Arrange (majority of arrange happens in beforeEach               
-        formTypeStub.returns(1);
-        counter = 16;
+        // Arrange (majority of arrange happens in beforeEach)              
+        _formTypeStub.returns(1);
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.updateCounter(16);
 
         //Act
-        onReady();
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.onReady();
         _fireOnChange();
         
         //Assert
@@ -109,11 +109,11 @@ describe("CheckForUpdateFromAzureCode", function() {
     });
 
     it("Update_Form_Load", function() {
-        // Arrange (majority of arrange happens in beforeEach        
-        formTypeStub.returns(2);
+        // Arrange (majority of arrange happens in beforeEach)       
+        _formTypeStub.returns(2);
 
         //Act
-        onReady();
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.onReady();
 
         //Assert
         expectResponse(this.requests, true);
