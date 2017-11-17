@@ -1,6 +1,16 @@
-﻿<appSettings>
+﻿<!-- FORMAT FOR LOCAL SETTINGS:
+<appSettings>
   <add key="OnlineUsername" value="your_user@yourtenant.onmicrosoft.com" />
   <add key="OnlinePassword" value="your_password" />
   <add key="OnlineCrmUrl" value="https://your-instance.crm.dynamics.com" />
+  <add key="AzureKey" value="" />
+</appSettings>
+-->
+
+<!-- TOKENIZED FORMAT FOR VSTS TASK IN THE FORMAT OF #{vstsVariableName}# -->
+<appSettings>
+  <add key="OnlineUsername" value="#{dynUserName}#" />
+  <add key="OnlinePassword" value="#{dynPassword}#" />
+  <add key="OnlineCrmUrl" value="#{https://your-instance.crm.dynamics.com}#" />
   <add key="AzureKey" value="" />
 </appSettings>
