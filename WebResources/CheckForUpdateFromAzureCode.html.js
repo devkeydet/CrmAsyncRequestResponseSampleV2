@@ -6,24 +6,24 @@
         }
 
         CheckForUpdateFromAzureCode.init = function () {
-            this.timeout = 1000;
-            this.counter = 0;
+            CheckForUpdateFromAzureCode.timeout = 1000;
+            CheckForUpdateFromAzureCode.counter = 0;
         };
 
         CheckForUpdateFromAzureCode.onReady = function () {
             switch (Xrm.Page.ui.getFormType()) {
                 case 1://Create
-                    Xrm.Page.getAttribute("modifiedon").addOnChange(this.checkForUpdate);
+                    Xrm.Page.getAttribute("modifiedon").addOnChange(CheckForUpdateFromAzureCode.checkForUpdate);
                     break;
                 case 2://Update
-                    this.checkForUpdate();
+                    CheckForUpdateFromAzureCode.checkForUpdate();
                     break;
                 default:
             }
         };
 
         CheckForUpdateFromAzureCode.updateCounter = function (counter) {
-            this.counter = counter;
+            CheckForUpdateFromAzureCode.counter = counter;
         };
 
         CheckForUpdateFromAzureCode.checkForUpdate = function () {
