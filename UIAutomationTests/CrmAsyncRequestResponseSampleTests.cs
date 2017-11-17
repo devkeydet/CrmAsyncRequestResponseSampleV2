@@ -36,7 +36,7 @@ namespace UIAutomationTests
                 var xpath = "//*[@id='taskpane-scroll-container']/div[3]/button[1]";
                 var appElement = wait.Until(d=>d.FindElement(By.XPath(xpath)));
                 // Need to see if there is a better way to consistently select the app from the list by app name.  For now using XPath...   
-                xrmBrowser.ThinkTime(1000);  // not sure why I need think time here, but I get an exception otherwise.
+                xrmBrowser.ThinkTime(5000);  // not sure why I need think time here, but I get an exception otherwise.
                 appElement.Click();
 
                 // Create a new AsyncRequestResponseSample entity and save it
