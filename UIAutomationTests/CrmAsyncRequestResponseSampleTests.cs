@@ -29,17 +29,17 @@ namespace UIAutomationTests
                 xrmBrowser.LoginPage.Login(_xrmUri, _username, _password);
 
                 // Navigate to the app by selecting the AsyncRequestResponseSample app in the app list
-                var wait = new WebDriverWait(xrmBrowser.Driver, TimeSpan.FromSeconds(5));
                 var id = "TabArrowDivider";
-                var appListElement = wait.Until(d => d.FindElement(By.Id(id)));
-                appListElement.Click();
-                var xpath = "//*[@id='taskpane-scroll-container']/div[3]/button[1]";
-                var appElement = wait.Until(d=>d.FindElement(By.XPath(xpath)));
-                // Need to see if there is a better way to consistently select the app from the list by app name.  For now using XPath...   
+                xrmBrowser.Driver.ClickWhenAvailable(By.Id(id));
+
                 xrmBrowser.ThinkTime(5000);  // not sure why I need think time here, but I get an exception otherwise.
+                // Need to see if there is a better way to consistently select the app from the list by app name.  For now using XPath...  
+                var xpath = "//*[@id='taskpane-scroll-container']/div[3]/button[1]";
+                var appElement = xrmBrowser.Driver.FindElement(By.XPath(xpath));  // Tried ClicWhenAvailable, but it failed sporadically
                 appElement.Click();
 
-                // Create a new AsyncRequestResponseSample entity and save it
+                // Create a new record and save
+                xrmBrowser.ThinkTime(5000);  // not sure why I need think time here, but I get an exception otherwise.
                 xrmBrowser.CommandBar.ClickCommand("New");
                 var guid = Guid.NewGuid().ToString();
                 xrmBrowser.Entity.SetValue("dkdt_name", guid);
@@ -48,7 +48,7 @@ namespace UIAutomationTests
                 // Verify web resource contents after message comes back from Azure
                 xrmBrowser.Document.SwitchToContentFrame();
                 xrmBrowser.Driver.SwitchTo().Frame("WebResource_CheckForUpdateFromAzureCode");
-                wait = new WebDriverWait(xrmBrowser.Driver, TimeSpan.FromSeconds(20));
+                var wait = new WebDriverWait(xrmBrowser.Driver, TimeSpan.FromSeconds(35));
                 wait.Until(d=>d.FindElement(By.Id("status")).Text.Contains("Azure code updated entity."));
             }
         }
