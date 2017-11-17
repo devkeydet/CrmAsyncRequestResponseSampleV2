@@ -45,7 +45,7 @@
                     }
                     else {
                         CheckForUpdateFromAzureCode.counter++;
-                        if (CheckForUpdateFromAzureCode.counter > 15) {
+                        if (CheckForUpdateFromAzureCode.counter > 30) {
                             $("#status").empty()
                                 .append("Something went wrong on the server.  Please contact your administrator.");
                             CheckForUpdateFromAzureCode.counter = 0;

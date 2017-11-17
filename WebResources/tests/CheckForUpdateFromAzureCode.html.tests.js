@@ -96,7 +96,7 @@ describe("CheckForUpdateFromAzureCode", function() {
     it("Create_Form_Save_Timeout", function() {
         // Arrange (majority of arrange happens in beforeEach)              
         _formTypeStub.returns(1);
-        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.updateCounter(16);
+        AsyncRequestResponseSample.CheckForUpdateFromAzureCode.updateCounter(31);
 
         //Act
         AsyncRequestResponseSample.CheckForUpdateFromAzureCode.onReady();
