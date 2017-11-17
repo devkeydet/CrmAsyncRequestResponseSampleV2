@@ -11,6 +11,6 @@
 <appSettings>
   <add key="OnlineUsername" value="#{dynUserName}#" />
   <add key="OnlinePassword" value="#{dynPassword}#" />
-  <add key="OnlineCrmUrl" value="#{https://your-instance.crm.dynamics.com}#" />
+  <add key="OnlineCrmUrl" value="#{dynUrl}#" />
   <add key="AzureKey" value="" />
 </appSettings>
