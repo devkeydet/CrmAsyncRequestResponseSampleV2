@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="CheckForUpdateFromAzureCode.html" />
     <Content Include="CheckForUpdateFromAzureCode.html.js" />
+    <None Include="gulpfile.js" />
     <Content Include="tests\CheckForUpdateFromAzureCode.html.tests.js" />
     <Content Include="scripts\o.js" />
     <Content Include="testhelpers\fakedocready.js" />
@@ -69,6 +70,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="package.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
