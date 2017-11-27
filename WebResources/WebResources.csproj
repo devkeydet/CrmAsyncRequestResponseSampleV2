@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="CheckForUpdateFromAzureCode.html" />
     <Content Include="CheckForUpdateFromAzureCode.html.js" />
+    <None Include="gulpfile.js" />
     <Content Include="tests\CheckForUpdateFromAzureCode.html.tests.js" />
     <Content Include="scripts\o.js" />
     <Content Include="testhelpers\fakedocready.js" />

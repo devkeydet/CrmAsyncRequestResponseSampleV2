@@ -265,3 +265,4 @@ __pycache__/
 *.pyc
 /WebResources/tests/chutzpah-jacoco.xml
 /UIAutomationTests/appSettings.config
+/WebResources/minifiedjs
